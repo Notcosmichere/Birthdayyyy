@@ -1,36 +1,81 @@
-const birthday = new Date("September 3, 2026 00:00:00").getTime();
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Georgia",serif;
+}
+
+
+body{
+
+    min-height:100vh;
+    overflow-x:hidden;
+    background:linear-gradient(#ffd6e7,#fff0f5);
+    text-align:center;
+    color:#7a2048;
+
+}
+
+
+
+section{
+
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+
+}
+
+
+
+.hidden{
+
+    display:none;
+
+}
 
 
 
 
 
-// FLOATING HEART GENERATOR
-
-setInterval(()=>{
-
-    let heart=document.createElement("span");
-
-    heart.innerHTML="❤️";
-
-    heart.style.left=Math.random()*100+"%";
-
-    heart.style.animationDuration=(Math.random()*5+5)+"s";
 
 
-    document.getElementById("hearts").appendChild(heart);
+/* HEART BACKGROUND */
 
 
-    setTimeout(()=>{
+#hearts span{
 
-        heart.remove();
+    position:fixed;
+    bottom:-50px;
+    animation:float 8s linear infinite;
+    font-size:25px;
+    z-index:-1;
 
-    },8000);
-
-
-},500);
+}
 
 
 
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0);
+        opacity:1;
+
+    }
+
+
+    100%{
+
+        transform:translateY(-120vh);
+        opacity:0;
+
+    }
+
+}
 
 
 
@@ -38,101 +83,285 @@ setInterval(()=>{
 
 
 
-// COUNTDOWN
+
+/* CAT */
 
 
-let countdown=setInterval(()=>{
+.cat{
+
+    position:absolute;
+    right:20px;
+    top:20px;
+    font-size:70px;
+
+    animation:peek 2s infinite alternate;
+
+}
 
 
-let now=new Date().getTime();
 
-let distance=birthday-now;
-
+@keyframes peek{
 
 
-let days=Math.floor(distance/(1000*60*60*24));
+from{
 
-let hours=Math.floor(
-(distance%(1000*60*60*24))/(1000*60*60)
+transform:translateY(-10px);
+
+}
+
+
+to{
+
+transform:translateY(10px);
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+h1{
+
+    font-size:35px;
+    margin-bottom:35px;
+
+}
+
+
+
+
+
+
+
+
+
+/* TIMER */
+
+
+#timer{
+
+display:flex;
+
+gap:15px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+
+
+#timer div{
+
+
+background:white;
+
+padding:20px;
+
+border-radius:20px;
+
+box-shadow:0 10px 30px #ff9fc5;
+
+font-size:18px;
+
+}
+
+
+
+#timer span{
+
+
+display:block;
+
+font-size:35px;
+
+font-weight:bold;
+
+}
+
+
+
+
+
+
+
+
+
+/* BUTTONS */
+
+
+button{
+
+
+margin:20px;
+
+padding:15px 25px;
+
+border:none;
+
+border-radius:30px;
+
+background:#ff6fa5;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+box-shadow:0 5px 20px #ffb4d2;
+
+}
+
+
+
+button:hover{
+
+transform:scale(1.05);
+
+}
+
+
+
+
+
+
+
+
+
+/* CAKE */
+
+
+.cake{
+
+
+font-size:120px;
+
+animation:cakeMove 2s infinite alternate;
+
+
+}
+
+
+
+@keyframes cakeMove{
+
+
+from{
+
+transform:translateY(0);
+
+}
+
+
+to{
+
+transform:translateY(-20px);
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+/* LETTER PAPER */
+
+
+.paper{
+
+
+width:90%;
+
+max-width:700px;
+
+background:#f7e3b5;
+
+padding:35px;
+
+border-radius:12px;
+
+box-shadow:0 15px 40px #c49a6c;
+
+background-image:
+
+linear-gradient(
+90deg,
+rgba(255,255,255,.2),
+transparent
 );
 
 
-let minutes=Math.floor(
-(distance%(1000*60*60))/(1000*60)
-);
-
-
-let seconds=Math.floor(
-(distance%(1000*60))/1000
-);
+}
 
 
 
-document.getElementById("days").innerHTML=days;
+.paper h2{
 
-document.getElementById("hours").innerHTML=hours;
 
-document.getElementById("minutes").innerHTML=minutes;
+font-size:32px;
 
-document.getElementById("seconds").innerHTML=seconds;
+margin-bottom:20px;
+
+}
 
 
 
 
 
-if(distance<=0){
-
-
-clearInterval(countdown);
-
-
-document.getElementById("countdownPage")
-.classList.add("hidden");
 
 
 
-document.getElementById("birthdayPage")
-.classList.remove("hidden");
+/* SCROLLABLE LETTER */
+
+
+.letterText{
+
+
+max-height:55vh;
+
+overflow-y:auto;
+
+padding-right:15px;
+
+text-align:left;
+
+font-size:18px;
+
+line-height:1.8;
+
+}
 
 
 
-document.getElementById("birthdayMusic").play();
+.letterText::-webkit-scrollbar{
 
+
+width:7px;
 
 
 }
 
 
 
-},1000);
+.letterText::-webkit-scrollbar-thumb{
 
 
+background:#c49a6c;
 
-
-
-
-
-
-
-
-
-// START BACKGROUND MUSIC
-
-
-window.onload=function(){
-
-
-let song=document.getElementById("loveSong");
-
-
-song.volume=0.4;
-
-
-song.play().catch(()=>{
-
-console.log("Music starts after interaction");
-
-});
+border-radius:20px;
 
 
 }
@@ -145,21 +374,36 @@ console.log("Music starts after interaction");
 
 
 
+/* PHOTOS */
 
 
-// OPEN LETTER
+.gallery{
 
 
-function openLetter(){
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:15px;
+
+}
 
 
-document.getElementById("birthdayPage")
-.classList.add("hidden");
+
+.gallery img{
 
 
+width:180px;
 
-document.getElementById("letterPage")
-.classList.remove("hidden");
+height:180px;
+
+object-fit:cover;
+
+border-radius:20px;
+
+box-shadow:0 10px 20px #ff9fc5;
 
 
 }
@@ -172,22 +416,127 @@ document.getElementById("letterPage")
 
 
 
+/* DATE INPUT */
 
 
-// PHOTOS
+input{
 
 
-function openPhotos(){
+padding:15px;
+
+border-radius:20px;
+
+border:2px solid #ff6fa5;
+
+font-size:18px;
+
+}
 
 
-document.getElementById("letterPage")
-.classList.add("hidden");
 
 
 
-document.getElementById("photosPage")
-.classList.remove("hidden");
 
+
+
+
+/* TICKET */
+
+
+.ticket{
+
+
+background:white;
+
+padding:40px;
+
+border-radius:25px;
+
+border:4px dashed #ff6fa5;
+
+max-width:350px;
+
+box-shadow:0 15px 30px #ffb4d2;
+
+}
+
+
+
+.ticket h1{
+
+font-size:28px;
+
+}
+
+
+
+
+
+
+
+
+
+/* VOICE PLAYER */
+
+
+.voice{
+
+
+width:90%;
+
+max-width:400px;
+
+}
+
+
+
+
+
+
+
+
+
+/* SECRET BUTTON */
+
+
+#testBtn{
+
+
+position:fixed;
+
+bottom:10px;
+
+left:10px;
+
+width:35px;
+
+height:35px;
+
+padding:0;
+
+margin:0;
+
+border-radius:50%;
+
+font-size:14px;
+
+background:#ffb6d5;
+
+opacity:0.6;
+
+z-index:999;
+
+
+}
+
+
+
+#testBtn:hover{
+
+
+opacity:1;
+
+transform:scale(1.1);
 
 
 }
@@ -200,147 +549,78 @@ document.getElementById("photosPage")
 
 
 
-// DATE PAGE
+/* PHONE */
 
 
-function openDatePage(){
-
-
-document.getElementById("photosPage")
-.classList.add("hidden");
+@media(max-width:600px){
 
 
 
-document.getElementById("datePage")
-.classList.remove("hidden");
+h1{
+
+font-size:26px;
+
+}
+
+
+
+#timer div{
+
+
+padding:12px;
 
 
 }
 
 
 
+#timer span{
 
 
-
-
-
-
-
-
-// MAKE TICKET
-
-
-function makeTicket(){
-
-
-let date=document.getElementById("dateInput").value;
-
-
-
-if(date==""){
-
-
-alert("Pick a date first 😭❤️");
-
-return;
+font-size:25px;
 
 
 }
 
 
 
-document.getElementById("chosenDate").innerHTML=
-
-"Meeting Date ❤️ : "+date;
+.cat{
 
 
-
-document.getElementById("datePage")
-.classList.add("hidden");
-
-
-
-document.getElementById("ticketPage")
-.classList.remove("hidden");
-
+font-size:50px;
 
 
 }
 
 
 
+.paper{
 
 
-
-
-
-
-
-
-// VOICE PAGE
-
-
-function voicePage(){
-
-
-document.getElementById("datePage")
-.classList.add("hidden");
-
-
-
-document.getElementById("voicePage")
-.classList.remove("hidden");
-
-
-
-// STOP SONG2
-
-
-let song=document.getElementById("loveSong");
-
-song.pause();
-
-song.currentTime=0;
-
-
-
-
-
-function testAccess(){
-
-
-let pass = prompt("Enter testing password ❤️");
-
-
-if(pass === "Avanthika123"){
-
-
-document.getElementById("countdownPage")
-.classList.add("hidden");
-
-
-document.getElementById("birthdayPage")
-.classList.remove("hidden");
-
-
-
-document.getElementById("birthdayMusic").play();
-
-
-
-alert("Test mode activated ❤️");
-
+padding:25px;
 
 }
 
-else{
 
 
-alert("Wrong password 😭");
+.letterText{
 
+
+font-size:16px;
 
 }
 
+
+
+.gallery img{
+
+
+width:140px;
+
+height:140px;
+
+
+}
 
 
 }
