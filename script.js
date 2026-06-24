@@ -1,273 +1,75 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Georgia",serif;
-}
+const birthday = new Date("September 3, 2026 00:00:00").getTime();
 
 
-body{
 
-    min-height:100vh;
-    overflow-x:hidden;
-    background:linear-gradient(#ffd6e7,#fff0f5);
-    text-align:center;
-    color:#7a2048;
+let songStarted = false;
 
-}
 
 
+// FLOATING HEARTS
 
-section{
+setInterval(()=>{
 
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
 
-}
+let heart=document.createElement("span");
 
 
+heart.innerHTML="❤️";
 
-.hidden{
 
-    display:none;
+heart.style.left=Math.random()*100+"%";
 
-}
 
+heart.style.animationDuration =
+(Math.random()*5+5)+"s";
 
 
+document.getElementById("hearts")
+.appendChild(heart);
 
 
 
+setTimeout(()=>{
 
-/* HEART BACKGROUND */
+heart.remove();
 
+},8000);
 
-#hearts span{
 
-    position:fixed;
-    bottom:-50px;
-    animation:float 8s linear infinite;
-    font-size:25px;
-    z-index:-1;
 
-}
+},500);
 
 
 
-@keyframes float{
 
-    0%{
 
-        transform:translateY(0);
-        opacity:1;
 
-    }
 
 
-    100%{
+// START SONG2 AFTER FIRST TOUCH
 
-        transform:translateY(-120vh);
-        opacity:0;
+document.body.addEventListener("click",()=>{
 
-    }
 
-}
+if(!songStarted){
 
 
+let song=document.getElementById("loveSong");
 
 
+song.volume=.4;
 
 
+song.play();
 
 
-/* CAT */
-
-
-.cat{
-
-    position:absolute;
-    right:20px;
-    top:20px;
-    font-size:70px;
-
-    animation:peek 2s infinite alternate;
-
-}
-
-
-
-@keyframes peek{
-
-
-from{
-
-transform:translateY(-10px);
-
-}
-
-
-to{
-
-transform:translateY(10px);
-
-}
-
-}
-
-
-
-
-
-
-
-
-
-h1{
-
-    font-size:35px;
-    margin-bottom:35px;
-
-}
-
-
-
-
-
-
-
-
-
-/* TIMER */
-
-
-#timer{
-
-display:flex;
-
-gap:15px;
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-}
-
-
-
-#timer div{
-
-
-background:white;
-
-padding:20px;
-
-border-radius:20px;
-
-box-shadow:0 10px 30px #ff9fc5;
-
-font-size:18px;
-
-}
-
-
-
-#timer span{
-
-
-display:block;
-
-font-size:35px;
-
-font-weight:bold;
-
-}
-
-
-
-
-
-
-
-
-
-/* BUTTONS */
-
-
-button{
-
-
-margin:20px;
-
-padding:15px 25px;
-
-border:none;
-
-border-radius:30px;
-
-background:#ff6fa5;
-
-color:white;
-
-font-size:18px;
-
-cursor:pointer;
-
-box-shadow:0 5px 20px #ffb4d2;
-
-}
-
-
-
-button:hover{
-
-transform:scale(1.05);
-
-}
-
-
-
-
-
-
-
-
-
-/* CAKE */
-
-
-.cake{
-
-
-font-size:120px;
-
-animation:cakeMove 2s infinite alternate;
+songStarted=true;
 
 
 }
 
 
-
-@keyframes cakeMove{
-
-
-from{
-
-transform:translateY(0);
-
-}
-
-
-to{
-
-transform:translateY(-20px);
-
-}
-
-}
+});
 
 
 
@@ -277,133 +79,102 @@ transform:translateY(-20px);
 
 
 
-/* LETTER PAPER */
+// COUNTDOWN
 
 
-.paper{
+let timer=setInterval(()=>{
 
 
-width:90%;
+let now=new Date().getTime();
 
-max-width:700px;
 
-background:#f7e3b5;
+let distance=birthday-now;
 
-padding:35px;
 
-border-radius:12px;
 
-box-shadow:0 15px 40px #c49a6c;
 
-background-image:
-
-linear-gradient(
-90deg,
-rgba(255,255,255,.2),
-transparent
+let days=Math.floor(
+distance/(1000*60*60*24)
 );
 
 
-}
 
+let hours=Math.floor(
+(distance%(1000*60*60*24))
+/(1000*60*60)
+);
 
 
-.paper h2{
 
+let minutes=Math.floor(
+(distance%(1000*60*60))
+/(1000*60)
+);
 
-font-size:32px;
 
-margin-bottom:20px;
 
-}
+let seconds=Math.floor(
+(distance%(1000*60))
+/1000
+);
 
 
 
 
+document.getElementById("days").innerHTML=days;
 
+document.getElementById("hours").innerHTML=hours;
 
+document.getElementById("minutes").innerHTML=minutes;
 
+document.getElementById("seconds").innerHTML=seconds;
 
-/* SCROLLABLE LETTER */
 
 
-.letterText{
 
 
-max-height:55vh;
+if(distance<=0){
 
-overflow-y:auto;
 
-padding-right:15px;
+clearInterval(timer);
 
-text-align:left;
 
-font-size:18px;
 
-line-height:1.8;
+document.getElementById("countdownPage")
+.classList.add("hidden");
 
-}
 
 
+document.getElementById("birthdayPage")
+.classList.remove("hidden");
 
-.letterText::-webkit-scrollbar{
 
 
-width:7px;
 
 
-}
+// STOP SONG2
 
+let oldSong=document.getElementById("loveSong");
 
+oldSong.pause();
 
-.letterText::-webkit-scrollbar-thumb{
+oldSong.currentTime=0;
 
 
-background:#c49a6c;
 
-border-radius:20px;
 
 
-}
+// PLAY BIRTHDAY SONG
 
 
+let birthdaySong=document.getElementById("birthdayMusic");
 
 
+birthdaySong.volume=.5;
 
 
+birthdaySong.play();
 
-
-
-/* PHOTOS */
-
-
-.gallery{
-
-
-display:flex;
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-gap:15px;
-
-}
-
-
-
-.gallery img{
-
-
-width:180px;
-
-height:180px;
-
-object-fit:cover;
-
-border-radius:20px;
-
-box-shadow:0 10px 20px #ff9fc5;
 
 
 }
@@ -411,132 +182,32 @@ box-shadow:0 10px 20px #ff9fc5;
 
 
 
+},1000);
 
 
 
 
 
-/* DATE INPUT */
 
 
-input{
 
 
-padding:15px;
 
-border-radius:20px;
 
-border:2px solid #ff6fa5;
+// LETTER
 
-font-size:18px;
 
-}
+function openLetter(){
 
 
 
+document.getElementById("birthdayPage")
+.classList.add("hidden");
 
 
 
-
-
-
-/* TICKET */
-
-
-.ticket{
-
-
-background:white;
-
-padding:40px;
-
-border-radius:25px;
-
-border:4px dashed #ff6fa5;
-
-max-width:350px;
-
-box-shadow:0 15px 30px #ffb4d2;
-
-}
-
-
-
-.ticket h1{
-
-font-size:28px;
-
-}
-
-
-
-
-
-
-
-
-
-/* VOICE PLAYER */
-
-
-.voice{
-
-
-width:90%;
-
-max-width:400px;
-
-}
-
-
-
-
-
-
-
-
-
-/* SECRET BUTTON */
-
-
-#testBtn{
-
-
-position:fixed;
-
-bottom:10px;
-
-left:10px;
-
-width:35px;
-
-height:35px;
-
-padding:0;
-
-margin:0;
-
-border-radius:50%;
-
-font-size:14px;
-
-background:#ffb6d5;
-
-opacity:0.6;
-
-z-index:999;
-
-
-}
-
-
-
-#testBtn:hover{
-
-
-opacity:1;
-
-transform:scale(1.1);
+document.getElementById("letterPage")
+.classList.remove("hidden");
 
 
 }
@@ -549,75 +220,236 @@ transform:scale(1.1);
 
 
 
-/* PHONE */
+// PHOTOS
 
 
-@media(max-width:600px){
-
-
-
-h1{
-
-font-size:26px;
-
-}
+function openPhotos(){
 
 
 
-#timer div{
-
-
-padding:12px;
-
-
-}
+document.getElementById("letterPage")
+.classList.add("hidden");
 
 
 
-#timer span{
+document.getElementById("photosPage")
+.classList.remove("hidden");
 
-
-font-size:25px;
 
 
 }
 
 
 
-.cat{
 
 
-font-size:50px;
+
+
+
+
+// FAVORITE PHOTO POPUP
+
+
+function showFavorite(){
+
+
+document.getElementById("favoritePopup")
+.style.display="flex";
 
 
 }
 
 
 
-.paper{
+function closeFavorite(){
 
 
-padding:25px;
+document.getElementById("favoritePopup")
+.style.display="none";
+
 
 }
 
 
 
-.letterText{
 
 
-font-size:16px;
+
+
+
+
+
+
+// DATE PAGE
+
+
+function openDatePage(){
+
+
+document.getElementById("photosPage")
+.classList.add("hidden");
+
+
+
+document.getElementById("datePage")
+.classList.remove("hidden");
+
 
 }
 
 
 
-.gallery img{
 
 
-width:140px;
 
-height:140px;
+
+
+
+
+
+// TICKET
+
+
+function makeTicket(){
+
+
+let date=
+document.getElementById("dateInput").value;
+
+
+
+if(date===""){
+
+
+alert("Pick a date first 😭❤️");
+
+
+return;
+
+
+}
+
+
+
+document.getElementById("chosenDate")
+.innerHTML=
+
+"Meeting Date ❤️ : "+date;
+
+
+
+
+document.getElementById("datePage")
+.classList.add("hidden");
+
+
+
+document.getElementById("ticketPage")
+.classList.remove("hidden");
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+// VOICE PAGE
+
+
+function voicePage(){
+
+
+document.getElementById("datePage")
+.classList.add("hidden");
+
+
+
+document.getElementById("voicePage")
+.classList.remove("hidden");
+
+
+
+
+// STOP ALL MUSIC
+
+
+let song=document.getElementById("loveSong");
+
+song.pause();
+
+
+let birthdaySong=document.getElementById("birthdayMusic");
+
+birthdaySong.pause();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+// SECRET TEST MODE
+
+
+function testAccess(){
+
+
+let pass=prompt("Enter testing password ❤️");
+
+
+
+if(pass==="Avanthika123"){
+
+
+
+document.getElementById("countdownPage")
+.classList.add("hidden");
+
+
+
+document.getElementById("birthdayPage")
+.classList.remove("hidden");
+
+
+
+let oldSong=document.getElementById("loveSong");
+
+oldSong.pause();
+
+
+
+let birthdaySong=document.getElementById("birthdayMusic");
+
+birthdaySong.play();
+
+
+
+alert("Test mode activated ❤️");
+
+
+
+}
+
+else{
+
+
+alert("Wrong password 😭");
 
 
 }
