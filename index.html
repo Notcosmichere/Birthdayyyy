@@ -20,7 +20,7 @@
 
 
 
-<!-- BACKGROUND SONG -->
+<!-- BACKGROUND MUSIC BEFORE BIRTHDAY -->
 
 <audio id="loveSong" loop>
 
@@ -39,16 +39,12 @@
 
 
 <div class="cat">
-
 🐱
-
 </div>
 
 
 <h1>
-
 Something special is coming... ❤️
-
 </h1>
 
 
@@ -57,39 +53,26 @@ Something special is coming... ❤️
 
 
 <div>
-
 <span id="days">00</span>
-
 Days
-
 </div>
 
 
 <div>
-
 <span id="hours">00</span>
-
 Hours
-
 </div>
 
 
-
 <div>
-
 <span id="minutes">00</span>
-
 Minutes
-
 </div>
 
 
 <div>
-
 <span id="seconds">00</span>
-
 Seconds
-
 </div>
 
 
@@ -106,7 +89,6 @@ Seconds
 
 
 
-
 <!-- BIRTHDAY -->
 
 
@@ -114,10 +96,12 @@ Seconds
 
 
 <h1>
-
 Happy Birthday to my beautiful wifeyyy mwahhh ❤️
-
 </h1>
+
+
+
+<div class="cakeBox">
 
 
 <div class="cake">
@@ -125,6 +109,17 @@ Happy Birthday to my beautiful wifeyyy mwahhh ❤️
 🎂
 
 </div>
+
+
+<div class="sparkles">
+
+✨ ✨ ✨
+
+</div>
+
+
+</div>
+
 
 
 
@@ -137,11 +132,13 @@ Happy Birthday to my beautiful wifeyyy mwahhh ❤️
 
 
 
+
 <button onclick="openLetter()">
 
 Do you wanna hear my heart? 💌
 
 </button>
+
 
 
 
@@ -166,10 +163,9 @@ Do you wanna hear my heart? 💌
 
 
 <h2>
-
 For my koch ❤️
-
 </h2>
+
 
 
 
@@ -230,19 +226,6 @@ innu ahnenki nink nadann varanam korey ichiri wait cheyth varane
 <br><br>
 
 
-njn parayathollarnu pashe athrem nerom avde nikande  
-enta kunjin angane nikne ishtilatha konda njn pinne varan paranje
-
-
-<br><br>
-
-
-sho aa ennalu poteh noki okke varane kuripey 😭
-
-
-<br><br>
-
-
 enta koch shundariiyanannee arum nokuva polum vendaa
 
 
@@ -255,12 +238,6 @@ entayaa ham mine mineeee mwah ❤️
 <br><br>
 
 
-anyways innuuu athalalo main pointt
-
-
-<br><br>
-
-
 nintee birthdayyy
 
 
@@ -268,66 +245,6 @@ nintee birthdayyy
 
 
 17 Varsham of cuteness 🎂
-
-
-<br><br>
-
-
-ipo nml Enth edkuvarikumm ham
-
-
-<br><br>
-
-
-ennayalumm 3 thiyathi varan patiya kollayrn
-
-
-<br><br>
-
-
-ninte appn ipo avde kanum athaahnanne preshnam
-
-
-<br><br>
-
-
-varanammm enijjj
-
-
-<br><br>
-
-
-patiyilenkii like kanan patiyilenkii
-
-
-<br><br>
-
-
-njnum muttayi medichond vann tharamee
-
-
-<br><br>
-
-
-just thannit pokolamm ham umwah
-
-
-<br><br>
-
-
-ham ennayaluu adtha pageil date choiknond
-
-
-<br><br>
-
-
-epla varande enn Athil full cheyth kodthek
-
-
-<br><br>
-
-
-and One more thing...
 
 
 <br><br>
@@ -351,7 +268,6 @@ SHO ham ninnee enikkk ettommmmm koodthal ishtmm ketah kunj kuripey
 
 
 
-
 <button onclick="openPhotos()">
 
 kunjj kurip 💌
@@ -370,22 +286,21 @@ kunjj kurip 💌
 
 
 
-<!-- PHOTOS -->
+<!-- BABY MEMORY PAGE -->
 
 
 <section id="photosPage" class="hidden">
 
 
+
 <h1>
-
 Your growing up memories ❤️
-
 </h1>
 
 
 
+<div class="memoryScroll">
 
-<div class="gallery">
 
 
 <img src="baby1.jpg">
@@ -407,8 +322,21 @@ Your growing up memories ❤️
 <img src="baby9.jpg">
 
 
+
 </div>
 
+
+
+
+
+<div class="photoButtons">
+
+
+<button onclick="showFavorite()">
+
+enta favorite phto ❤️
+
+</button>
 
 
 
@@ -417,6 +345,9 @@ Your growing up memories ❤️
 Next ❤️
 
 </button>
+
+
+</div>
 
 
 
@@ -430,11 +361,48 @@ Next ❤️
 
 
 
-<!-- DATE -->
+<!-- FAVORITE PHOTO POPUP -->
+
+
+<div id="favoritePopup" class="popup">
+
+
+<div class="favoriteCard">
+
+
+<button class="close" onclick="closeFavorite()">
+
+✖
+
+</button>
+
+
+<h2>
+My favorite one ❤️
+</h2>
+
+
+<img src="Kurip.jpg">
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- DATE PAGE -->
 
 
 <section id="datePage" class="hidden">
-
 
 
 <h1>
@@ -457,7 +425,6 @@ Confirm Date 💌
 
 
 
-
 <button onclick="voicePage()">
 
 sho date kitilenki ith njeki saravilah 😭
@@ -465,9 +432,7 @@ sho date kitilenki ith njeki saravilah 😭
 </button>
 
 
-
 </section>
-
 
 
 
@@ -487,17 +452,13 @@ sho date kitilenki ith njeki saravilah 😭
 
 
 <h1>
-
 DATE TICKET 🎟️❤️
-
 </h1>
 
 
 
 <p>
-
 For my pavam koch (Meh) ❤️
-
 </p>
 
 
@@ -506,11 +467,8 @@ For my pavam koch (Meh) ❤️
 
 
 
-
 <p>
-
 Screenshot this and send it to your pavam koch 😭❤️
-
 </p>
 
 
@@ -537,9 +495,7 @@ Screenshot this and send it to your pavam koch 😭❤️
 
 
 <h1>
-
 For my koch ❤️
-
 </h1>
 
 
@@ -563,8 +519,7 @@ For my koch ❤️
 
 
 
-<!-- SECRET TEST BUTTON -->
-
+<!-- SECRET TEST -->
 
 <button id="testBtn" onclick="testAccess()">
 
@@ -575,12 +530,10 @@ For my koch ❤️
 
 
 
-
-
-
 <script src="script.js"></script>
 
 
 </body>
+
 
 </html>
