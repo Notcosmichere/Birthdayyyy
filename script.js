@@ -1,12 +1,13 @@
 const birthday = new Date("September 3, 2026 00:00:00").getTime();
 
 
-
 let songStarted = false;
 
 
 
-// FLOATING HEARTS
+
+
+// HEART ANIMATION
 
 setInterval(()=>{
 
@@ -20,8 +21,8 @@ heart.innerHTML="❤️";
 heart.style.left=Math.random()*100+"%";
 
 
-heart.style.animationDuration =
-(Math.random()*5+5)+"s";
+heart.style.animationDuration=(Math.random()*5+5)+"s";
+
 
 
 document.getElementById("hearts")
@@ -31,7 +32,9 @@ document.getElementById("hearts")
 
 setTimeout(()=>{
 
+
 heart.remove();
+
 
 },8000);
 
@@ -46,7 +49,49 @@ heart.remove();
 
 
 
-// START SONG2 AFTER FIRST TOUCH
+
+
+// START SONG2 ONLY
+
+
+window.addEventListener("load",()=>{
+
+
+let song=document.getElementById("loveSong");
+
+
+song.volume=.4;
+
+
+song.play()
+
+.then(()=>{
+
+
+songStarted=true;
+
+
+})
+
+.catch(()=>{
+
+
+console.log("Waiting for user touch");
+
+
+});
+
+
+});
+
+
+
+
+
+
+
+// MOBILE AUTOPLAY FIX
+
 
 document.body.addEventListener("click",()=>{
 
@@ -79,17 +124,19 @@ songStarted=true;
 
 
 
+
+
+
 // COUNTDOWN
 
 
-let timer=setInterval(()=>{
+setInterval(()=>{
 
 
 let now=new Date().getTime();
 
 
 let distance=birthday-now;
-
 
 
 
@@ -123,62 +170,14 @@ let seconds=Math.floor(
 
 document.getElementById("days").innerHTML=days;
 
+
 document.getElementById("hours").innerHTML=hours;
+
 
 document.getElementById("minutes").innerHTML=minutes;
 
+
 document.getElementById("seconds").innerHTML=seconds;
-
-
-
-
-
-if(distance<=0){
-
-
-clearInterval(timer);
-
-
-
-document.getElementById("countdownPage")
-.classList.add("hidden");
-
-
-
-document.getElementById("birthdayPage")
-.classList.remove("hidden");
-
-
-
-
-
-// STOP SONG2
-
-let oldSong=document.getElementById("loveSong");
-
-oldSong.pause();
-
-oldSong.currentTime=0;
-
-
-
-
-
-// PLAY BIRTHDAY SONG
-
-
-let birthdaySong=document.getElementById("birthdayMusic");
-
-
-birthdaySong.volume=.5;
-
-
-birthdaySong.play();
-
-
-
-}
-
 
 
 
@@ -220,11 +219,12 @@ document.getElementById("letterPage")
 
 
 
+
+
 // PHOTOS
 
 
 function openPhotos(){
-
 
 
 document.getElementById("letterPage")
@@ -238,6 +238,8 @@ document.getElementById("photosPage")
 
 
 }
+
+
 
 
 
@@ -295,6 +297,39 @@ document.getElementById("datePage")
 .classList.remove("hidden");
 
 
+
+
+
+// STOP SONG2
+
+
+let song=document.getElementById("loveSong");
+
+
+song.pause();
+
+
+song.currentTime=0;
+
+
+
+
+
+
+
+// START MUSIC1 ONLY HERE
+
+
+let birthdaySong=document.getElementById("birthdayMusic");
+
+
+birthdaySong.volume=.5;
+
+
+birthdaySong.play();
+
+
+
 }
 
 
@@ -313,8 +348,7 @@ document.getElementById("datePage")
 function makeTicket(){
 
 
-let date=
-document.getElementById("dateInput").value;
+let date=document.getElementById("dateInput").value;
 
 
 
@@ -331,10 +365,12 @@ return;
 
 
 
+
 document.getElementById("chosenDate")
 .innerHTML=
 
 "Meeting Date ❤️ : "+date;
+
 
 
 
@@ -348,8 +384,8 @@ document.getElementById("ticketPage")
 .classList.remove("hidden");
 
 
-
 }
+
 
 
 
@@ -378,15 +414,16 @@ document.getElementById("voicePage")
 
 
 
-// STOP ALL MUSIC
-
-
 let song=document.getElementById("loveSong");
+
 
 song.pause();
 
 
+
+
 let birthdaySong=document.getElementById("birthdayMusic");
+
 
 birthdaySong.pause();
 
@@ -404,10 +441,11 @@ birthdaySong.pause();
 
 
 
-// SECRET TEST MODE
+// SECRET TEST BUTTON
 
 
 function testAccess(){
+
 
 
 let pass=prompt("Enter testing password ❤️");
@@ -428,15 +466,17 @@ document.getElementById("birthdayPage")
 
 
 
-let oldSong=document.getElementById("loveSong");
-
-oldSong.pause();
 
 
+// STOP SONG2
 
-let birthdaySong=document.getElementById("birthdayMusic");
 
-birthdaySong.play();
+let song=document.getElementById("loveSong");
+
+
+song.pause();
+
+
 
 
 
@@ -446,6 +486,7 @@ alert("Test mode activated ❤️");
 
 }
 
+
 else{
 
 
@@ -453,6 +494,7 @@ alert("Wrong password 😭");
 
 
 }
+
 
 
 }
