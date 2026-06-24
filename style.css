@@ -1,0 +1,503 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Georgia",serif;
+}
+
+
+body{
+
+    min-height:100vh;
+    overflow-x:hidden;
+    background:linear-gradient(#ffd6e7,#fff0f5);
+
+    text-align:center;
+    color:#7a2048;
+
+}
+
+
+
+section{
+
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+
+}
+
+
+
+.hidden{
+
+    display:none;
+
+}
+
+
+
+
+/* FLOATING HEARTS */
+
+
+#hearts span{
+
+    position:fixed;
+    bottom:-50px;
+    animation:float 8s linear infinite;
+    font-size:25px;
+    z-index:-1;
+
+}
+
+
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0);
+
+        opacity:1;
+
+    }
+
+
+    100%{
+
+        transform:translateY(-120vh);
+
+        opacity:0;
+
+    }
+
+}
+
+
+
+
+
+
+
+/* CAT */
+
+
+.cat{
+
+    position:absolute;
+
+    right:20px;
+
+    top:20px;
+
+    font-size:70px;
+
+    animation:peek 2s infinite alternate;
+
+}
+
+
+
+@keyframes peek{
+
+    from{
+
+        transform:translateY(-10px);
+
+    }
+
+
+    to{
+
+        transform:translateY(10px);
+
+    }
+
+}
+
+
+
+
+
+
+h1{
+
+    font-size:35px;
+
+    margin-bottom:40px;
+
+}
+
+
+
+
+
+
+
+/* TIMER */
+
+
+#timer{
+
+display:flex;
+
+gap:15px;
+
+}
+
+
+
+#timer div{
+
+background:white;
+
+padding:20px;
+
+border-radius:20px;
+
+box-shadow:0 10px 30px #ff9fc5;
+
+font-size:18px;
+
+
+}
+
+
+
+#timer span{
+
+display:block;
+
+font-size:35px;
+
+font-weight:bold;
+
+}
+
+
+
+
+
+
+
+
+button{
+
+
+margin:20px;
+
+padding:15px 25px;
+
+border:none;
+
+border-radius:30px;
+
+background:#ff6fa5;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+box-shadow:0 5px 20px #ffb4d2;
+
+
+}
+
+
+
+button:hover{
+
+transform:scale(1.05);
+
+}
+
+
+
+
+
+
+
+/* CAKE */
+
+
+.cake{
+
+font-size:120px;
+
+animation:cake 2s infinite alternate;
+
+}
+
+
+
+@keyframes cake{
+
+from{
+
+transform:translateY(0);
+
+}
+
+
+to{
+
+transform:translateY(-20px);
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+/* LETTER */
+
+
+.paper{
+
+
+max-width:700px;
+
+background:#f7e3b5;
+
+padding:40px;
+
+border-radius:10px;
+
+box-shadow:0 15px 40px #c49a6c;
+
+font-size:18px;
+
+line-height:1.8;
+
+
+background-image:
+
+linear-gradient(
+90deg,
+rgba(255,255,255,.2),
+transparent
+);
+
+
+}
+
+
+
+
+.paper h2{
+
+margin-bottom:20px;
+
+font-size:32px;
+
+}
+
+
+
+
+
+
+
+
+
+/* PHOTOS */
+
+
+.gallery{
+
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:15px;
+
+
+}
+
+
+
+.gallery img{
+
+
+width:200px;
+
+height:200px;
+
+object-fit:cover;
+
+border-radius:20px;
+
+box-shadow:0 10px 20px #ff9fc5;
+
+
+}
+
+
+
+
+
+
+
+
+/* DATE */
+
+
+input{
+
+
+padding:15px;
+
+border-radius:20px;
+
+border:2px solid #ff6fa5;
+
+font-size:18px;
+
+
+}
+
+
+
+
+
+
+
+/* TICKET */
+
+
+.ticket{
+
+
+background:white;
+
+padding:40px;
+
+border-radius:25px;
+
+border:4px dashed #ff6fa5;
+
+max-width:350px;
+
+box-shadow:0 15px 30px #ffb4d2;
+
+
+}
+
+
+
+.ticket h1{
+
+font-size:28px;
+
+}
+
+
+
+
+
+
+
+
+
+/* VOICE */
+
+
+.voice{
+
+
+width:90%;
+
+max-width:400px;
+
+}
+
+
+
+
+
+
+
+
+
+/* MOBILE */
+
+
+@media(max-width:600px){
+
+
+h1{
+
+font-size:26px;
+
+}
+
+
+
+#timer{
+
+gap:5px;
+
+}
+
+
+
+#timer div{
+
+padding:12px;
+
+}
+
+
+
+#timer span{
+
+font-size:25px;
+
+}
+
+
+
+.cat{
+
+font-size:50px;
+
+}
+
+
+
+.paper{
+
+padding:25px;
+
+font-size:16px;
+
+}
+
+
+
+.gallery img{
+
+width:140px;
+
+height:140px;
+
+}
+
+
+}
