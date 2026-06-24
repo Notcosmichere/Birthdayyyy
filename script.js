@@ -305,3 +305,42 @@ song.currentTime=0;
 
 
 }
+
+function testAccess(){
+
+
+let pass = prompt("Enter testing password ❤️");
+
+
+if(pass === "Avanthika123"){
+
+
+document.getElementById("countdownPage")
+.classList.add("hidden");
+
+
+document.getElementById("birthdayPage")
+.classList.remove("hidden");
+
+
+
+document.getElementById("birthdayMusic").play();
+
+
+
+alert("Test mode activated ❤️");
+
+
+}
+
+else{
+
+
+alert("Wrong password 😭");
+
+
+}
+
+
+
+}
