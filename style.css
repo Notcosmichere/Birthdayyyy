@@ -22,7 +22,6 @@ scroll-behavior:smooth;
 
 body{
 
-
 min-height:100vh;
 
 overflow-x:hidden;
@@ -35,7 +34,7 @@ linear-gradient(
 
 #ffd6e7,
 
-#fff7fb
+#fff8fc
 
 );
 
@@ -46,7 +45,6 @@ text-align:center;
 
 
 }
-
 
 
 
@@ -70,7 +68,6 @@ padding:25px;
 
 
 
-
 .hidden{
 
 display:none;
@@ -85,7 +82,7 @@ display:none;
 
 
 
-/* HEART BACKGROUND */
+/* HEARTS */
 
 
 #hearts span{
@@ -110,30 +107,24 @@ z-index:-1;
 
 
 
-
 @keyframes heartFloat{
 
 
 0%{
 
-
 transform:translateY(0);
 
 opacity:1;
-
 
 }
 
 
 100%{
 
-
 transform:translateY(-120vh);
-
 
 opacity:0;
 
-
 }
 
 
@@ -147,7 +138,34 @@ opacity:0;
 
 
 
-/* CAT */
+/* COUNTDOWN BOX */
+
+
+.countdownBox{
+
+
+position:relative;
+
+
+background:rgba(255,255,255,.7);
+
+
+padding:45px 25px 35px;
+
+
+border-radius:35px;
+
+
+box-shadow:
+
+
+0 20px 50px rgba(255,100,160,.3);
+
+
+
+}
+
+
 
 
 .cat{
@@ -156,30 +174,29 @@ opacity:0;
 position:absolute;
 
 
-right:20px;
+right:-20px;
 
 
-top:20px;
+top:-45px;
 
 
-font-size:75px;
+font-size:70px;
 
 
-animation:catMove 2s infinite alternate;
+animation:catPeek 2s infinite alternate;
 
 
 }
 
 
 
-
-@keyframes catMove{
+@keyframes catPeek{
 
 
 from{
 
 
-transform:translateY(-10px);
+transform:translateY(0) rotate(-10deg);
 
 
 }
@@ -188,7 +205,7 @@ transform:translateY(-10px);
 to{
 
 
-transform:translateY(15px);
+transform:translateY(12px) rotate(10deg);
 
 
 }
@@ -210,7 +227,7 @@ h1{
 font-size:35px;
 
 
-margin-bottom:40px;
+margin-bottom:35px;
 
 
 animation:fade .8s;
@@ -226,21 +243,16 @@ animation:fade .8s;
 
 from{
 
-
 opacity:0;
 
-
 transform:translateY(30px);
-
 
 }
 
 
 to{
 
-
 opacity:1;
-
 
 }
 
@@ -267,10 +279,10 @@ display:flex;
 gap:15px;
 
 
-flex-wrap:wrap;
-
-
 justify-content:center;
+
+
+flex-wrap:wrap;
 
 
 }
@@ -292,14 +304,15 @@ border-radius:25px;
 
 box-shadow:
 
-0 15px 40px rgba(255,100,160,.3);
+
+0 15px 35px rgba(255,100,160,.25);
+
 
 
 font-size:18px;
 
 
 }
-
 
 
 
@@ -345,6 +358,7 @@ border-radius:40px;
 
 background:
 
+
 linear-gradient(
 
 45deg,
@@ -354,7 +368,6 @@ linear-gradient(
 #ff9fc5
 
 );
-
 
 
 color:white;
@@ -368,6 +381,7 @@ cursor:pointer;
 
 box-shadow:
 
+
 0 10px 25px rgba(255,100,160,.4);
 
 
@@ -375,7 +389,6 @@ transition:.3s;
 
 
 }
-
 
 
 
@@ -395,23 +408,7 @@ transform:scale(1.08);
 
 
 
-/* CAKE GIF */
-
-
-.cakeBox{
-
-
-display:flex;
-
-
-justify-content:center;
-
-
-align-items:center;
-
-
-}
-
+/* CAKE */
 
 
 .cakeGif{
@@ -428,6 +425,7 @@ border-radius:25px;
 
 filter:
 
+
 drop-shadow(
 
 0 20px 30px rgba(255,100,160,.4)
@@ -435,11 +433,11 @@ drop-shadow(
 );
 
 
-animation:cakePop 1.5s ease;
+
+animation:cakePop 1.5s;
 
 
 }
-
 
 
 
@@ -456,6 +454,7 @@ transform:scale(.5) translateY(80px);
 
 
 }
+
 
 
 100%{
@@ -486,42 +485,28 @@ transform:scale(1);
 .paper{
 
 
+background:#f7e3b5;
+
+
 width:90%;
 
 
 max-width:700px;
 
 
-background:#f7e3b5;
-
-
 padding:40px;
 
 
-border-radius:15px;
+border-radius:20px;
 
 
 box-shadow:
 
-0 20px 50px rgba(120,60,20,.35);
+
+0 20px 50px rgba(100,50,20,.35);
 
 
 }
-
-
-
-.paper h2{
-
-
-font-size:35px;
-
-
-margin-bottom:25px;
-
-
-}
-
-
 
 
 
@@ -537,38 +522,10 @@ overflow-y:auto;
 text-align:left;
 
 
-font-size:18px;
-
-
 line-height:1.9;
 
 
-padding-right:15px;
-
-
-}
-
-
-
-
-
-.letterText::-webkit-scrollbar{
-
-
-width:8px;
-
-
-}
-
-
-
-.letterText::-webkit-scrollbar-thumb{
-
-
-background:#c49a6c;
-
-
-border-radius:20px;
+font-size:18px;
 
 
 }
@@ -581,16 +538,16 @@ border-radius:20px;
 
 
 
-/* PHOTO SCROLL */
+/* PHOTOS */
 
 
 .memoryScroll{
 
 
-width:90%;
-
-
 height:65vh;
+
+
+width:90%;
 
 
 overflow-y:auto;
@@ -608,11 +565,7 @@ align-items:center;
 gap:30px;
 
 
-padding:20px;
-
-
 }
-
 
 
 
@@ -630,21 +583,8 @@ border-radius:25px;
 
 box-shadow:
 
+
 0 15px 35px rgba(255,100,160,.4);
-
-
-transition:.4s;
-
-
-}
-
-
-
-
-.memoryScroll img:hover{
-
-
-transform:scale(1.05);
 
 
 }
@@ -669,9 +609,6 @@ position:fixed;
 inset:0;
 
 
-background:rgba(0,0,0,.5);
-
-
 display:none;
 
 
@@ -681,6 +618,9 @@ justify-content:center;
 align-items:center;
 
 
+background:rgba(0,0,0,.5);
+
+
 z-index:999;
 
 
@@ -688,11 +628,10 @@ z-index:999;
 
 
 
-
 .favoriteCard{
 
 
-background:#fff0f5;
+background:#fff0f7;
 
 
 padding:30px;
@@ -701,16 +640,10 @@ padding:30px;
 border-radius:30px;
 
 
-box-shadow:
-
-0 20px 50px black;
-
-
 animation:popup .5s;
 
 
 }
-
 
 
 
@@ -726,12 +659,7 @@ max-width:80vw;
 border-radius:25px;
 
 
-margin-top:20px;
-
-
 }
-
-
 
 
 
@@ -740,18 +668,95 @@ margin-top:20px;
 
 0%{
 
-
 transform:scale(0);
-
 
 }
 
 
 100%{
 
+transform:scale(1);
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+/* GAME */
+
+
+#gameArea{
+
+
+height:400px;
+
+
+width:90%;
+
+
+background:#fff0f7;
+
+
+border-radius:30px;
+
+
+position:relative;
+
+
+overflow:hidden;
+
+
+box-shadow:
+
+
+0 20px 40px #ffb4d2;
+
+
+}
+
+
+
+.gameHeart{
+
+
+position:absolute;
+
+
+font-size:45px;
+
+
+cursor:pointer;
+
+
+animation:heartPop .8s infinite alternate;
+
+
+}
+
+
+
+@keyframes heartPop{
+
+
+from{
 
 transform:scale(1);
 
+}
+
+
+to{
+
+transform:scale(1.2);
+
 
 }
 
@@ -766,27 +771,148 @@ transform:scale(1);
 
 
 
-/* TICKET */
+/* TICKETS */
 
 
-.ticket{
+.cuteTicket{
 
 
-background:white;
+background:
+
+
+linear-gradient(
+
+135deg,
+
+#fff0f7,
+
+#ffe0ed
+
+);
+
 
 
 padding:40px;
 
 
-border-radius:25px;
+width:330px;
 
 
-border:4px dashed #ff6fa5;
+border-radius:30px;
+
+
+border:3px dashed #ff6fa5;
 
 
 box-shadow:
 
-0 20px 40px #ffb4d2;
+
+0 20px 50px #ff9fc5;
+
+
+
+animation:ticketPop .8s;
+
+
+}
+
+
+
+.line{
+
+
+height:2px;
+
+
+background:#ff9fc5;
+
+
+margin:20px;
+
+
+}
+
+
+
+@keyframes ticketPop{
+
+
+from{
+
+transform:scale(.5);
+
+opacity:0;
+
+}
+
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+/* QUESTIONS */
+
+
+.questionBox{
+
+
+background:#fff0f7;
+
+
+padding:40px;
+
+
+border-radius:30px;
+
+
+box-shadow:
+
+
+0 20px 50px #ffb4d2;
+
+
+width:90%;
+
+
+max-width:420px;
+
+
+}
+
+
+
+.questionBox input{
+
+
+padding:15px;
+
+
+width:90%;
+
+
+border-radius:25px;
+
+
+border:2px solid #ff9fc5;
+
+
+font-size:16px;
 
 
 }
@@ -821,7 +947,7 @@ max-width:450px;
 
 
 
-/* SECRET BUTTON */
+/* PASSWORD BUTTON */
 
 
 #testBtn{
@@ -878,19 +1004,7 @@ font-size:26px;
 
 .cakeGif{
 
-
 width:220px;
-
-
-}
-
-
-
-#timer div{
-
-
-padding:15px;
-
 
 }
 
@@ -898,29 +1012,7 @@ padding:15px;
 
 #timer span{
 
-
 font-size:28px;
-
-
-}
-
-
-
-.paper{
-
-
-padding:25px;
-
-
-}
-
-
-
-.letterText{
-
-
-font-size:16px;
-
 
 }
 
