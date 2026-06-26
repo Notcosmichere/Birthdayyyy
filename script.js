@@ -51,16 +51,16 @@ heart.remove();
 
 
 
-
 // START SONG2
 
 window.addEventListener("load",()=>{
 
 
-let song=document.getElementById("loveSong");
+let song = document.getElementById("loveSong");
 
 
-song.volume=0.4;
+song.volume = 0.4;
+
 
 
 song.play()
@@ -68,7 +68,7 @@ song.play()
 .then(()=>{
 
 
-songStarted=true;
+songStarted = true;
 
 
 })
@@ -76,7 +76,7 @@ songStarted=true;
 .catch(()=>{
 
 
-console.log("Waiting for interaction");
+console.log("Waiting for click");
 
 
 });
@@ -91,7 +91,7 @@ console.log("Waiting for interaction");
 
 
 
-// MOBILE AUTOPLAY FIX
+// FIX FOR PHONES BLOCKING AUTOPLAY
 
 
 document.body.addEventListener("click",()=>{
@@ -100,17 +100,16 @@ document.body.addEventListener("click",()=>{
 if(!songStarted){
 
 
-let song=document.getElementById("loveSong");
+let song = document.getElementById("loveSong");
 
 
-song.volume=0.4;
+song.volume = 0.4;
 
 
 song.play();
 
 
-songStarted=true;
-
+songStarted = true;
 
 
 }
@@ -137,48 +136,47 @@ setInterval(()=>{
 let now = new Date().getTime();
 
 
-let distance = birthday-now;
+let distance = birthday - now;
 
 
 
-let days=Math.floor(
+let days = Math.floor(
 distance/(1000*60*60*24)
 );
 
 
 
-let hours=Math.floor(
+let hours = Math.floor(
 (distance%(1000*60*60*24))
 /(1000*60*60)
 );
 
 
 
-let minutes=Math.floor(
+let minutes = Math.floor(
 (distance%(1000*60*60))
 /(1000*60)
 );
 
 
 
-let seconds=Math.floor(
+let seconds = Math.floor(
 (distance%(1000*60))
 /1000
 );
 
 
 
-document.getElementById("days").innerHTML=days;
+document.getElementById("days").innerHTML = days;
 
 
-document.getElementById("hours").innerHTML=hours;
+document.getElementById("hours").innerHTML = hours;
 
 
-document.getElementById("minutes").innerHTML=minutes;
+document.getElementById("minutes").innerHTML = minutes;
 
 
-document.getElementById("seconds").innerHTML=seconds;
-
+document.getElementById("seconds").innerHTML = seconds;
 
 
 
@@ -221,7 +219,6 @@ document.getElementById("letterPage")
 
 
 
-
 // OPEN PHOTOS
 
 
@@ -250,7 +247,6 @@ document.getElementById("photosPage")
 
 
 
-
 // FAVORITE PHOTO
 
 
@@ -265,7 +261,6 @@ document.getElementById("favoritePopup")
 
 
 
-
 function closeFavorite(){
 
 
@@ -274,7 +269,6 @@ document.getElementById("favoritePopup")
 
 
 }
-
 
 
 
@@ -304,16 +298,18 @@ document.getElementById("datePage")
 
 
 
+
+
 // STOP SONG2 ONLY HERE
 
 
-let song=document.getElementById("loveSong");
+let song = document.getElementById("loveSong");
 
 
 song.pause();
 
 
-song.currentTime=0;
+song.currentTime = 0;
 
 
 
@@ -324,12 +320,12 @@ song.currentTime=0;
 // START MUSIC1
 
 
-let birthdaySong=
+let birthdaySong =
 document.getElementById("birthdayMusic");
 
 
 
-birthdaySong.volume=0.5;
+birthdaySong.volume = 0.5;
 
 
 birthdaySong.play();
@@ -348,13 +344,14 @@ birthdaySong.play();
 
 
 
-// MAKE TICKET
+
+// CREATE TICKET
 
 
 function makeTicket(){
 
 
-let date=
+let date =
 document.getElementById("dateInput").value;
 
 
@@ -373,9 +370,9 @@ return;
 
 
 document.getElementById("chosenDate")
-.innerHTML=
+.innerHTML =
 
-"Meeting Date ❤️ : "+date;
+"Meeting Date ❤️ : " + date;
 
 
 
@@ -422,17 +419,19 @@ document.getElementById("voicePage")
 
 
 
+
 // STOP ALL MUSIC
 
 
-let song=document.getElementById("loveSong");
+let song = document.getElementById("loveSong");
 
 
 song.pause();
 
 
 
-let birthdaySong=
+
+let birthdaySong =
 document.getElementById("birthdayMusic");
 
 
@@ -453,19 +452,19 @@ birthdaySong.pause();
 
 
 
-
 // SECRET TEST BUTTON
 
 
 function testAccess(){
 
 
-let pass=
-prompt("Enter testing password ❤️");
+let pass = prompt(
+"Enter testing password ❤️"
+);
 
 
 
-if(pass==="Avanthika123"){
+if(pass === "Avanthika123"){
 
 
 
@@ -480,11 +479,32 @@ document.getElementById("birthdayPage")
 
 
 
+
+// KEEP SONG2 PLAYING
+
+
+let song =
+document.getElementById("loveSong");
+
+
+
+song.volume = 0.4;
+
+
+
+song.play();
+
+
+
+
+
 alert("Test mode activated ❤️");
 
 
 
 }
+
+
 
 else{
 
