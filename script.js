@@ -11,7 +11,6 @@ let questionNumber = 1;
 
 
 
-
 // HEART BACKGROUND
 
 
@@ -27,7 +26,8 @@ heart.innerHTML="❤️";
 heart.style.left=Math.random()*100+"%";
 
 
-heart.style.animationDuration=(Math.random()*5+5)+"s";
+heart.style.animationDuration=
+(Math.random()*5+5)+"s";
 
 
 
@@ -57,7 +57,8 @@ heart.remove();
 
 
 
-// START SONG2
+
+// SONG2 START
 
 
 window.addEventListener("load",()=>{
@@ -67,6 +68,7 @@ let song=document.getElementById("loveSong");
 
 
 song.volume=.4;
+
 
 
 song.play()
@@ -82,7 +84,7 @@ songStarted=true;
 .catch(()=>{
 
 
-console.log("waiting for click");
+console.log("click needed");
 
 
 });
@@ -98,7 +100,7 @@ console.log("waiting for click");
 
 
 
-// PHONE AUTOPLAY FIX
+// PHONE FIX
 
 
 document.body.addEventListener("click",()=>{
@@ -116,6 +118,7 @@ song.volume=.4;
 song.play();
 
 
+
 songStarted=true;
 
 
@@ -123,8 +126,6 @@ songStarted=true;
 
 
 });
-
-
 
 
 
@@ -214,9 +215,6 @@ document.getElementById("seconds").innerHTML=seconds;
 
 
 
-
-
-
 // LETTER
 
 
@@ -242,8 +240,6 @@ document.getElementById("letterPage")
 
 
 
-
-
 // PHOTOS
 
 
@@ -259,7 +255,6 @@ document.getElementById("photosPage")
 .classList.remove("hidden");
 
 
-
 }
 
 
@@ -270,9 +265,7 @@ document.getElementById("photosPage")
 
 
 
-
-
-// FAVORITE PHOTO
+// FAVORITE
 
 
 function showFavorite(){
@@ -303,9 +296,6 @@ document.getElementById("favoritePopup")
 
 
 
-
-
-
 // GAME
 
 
@@ -325,10 +315,19 @@ document.getElementById("gamePage")
 score=0;
 
 
-document.getElementById("scoreText")
-.innerHTML=
 
-"Hearts collected: 0/10";
+document.getElementById("scoreText")
+.innerHTML="Hearts collected: 0/10";
+
+
+
+document.getElementById("gameArea")
+.innerHTML="";
+
+
+
+document.getElementById("winBox")
+.classList.add("hidden");
 
 
 
@@ -340,10 +339,16 @@ spawnHeart();
 
 
 
+
+
+
+
 function spawnHeart(){
 
 
+
 if(score>=10){
+
 
 
 document.getElementById("winBox")
@@ -360,10 +365,12 @@ return;
 let heart=document.createElement("div");
 
 
+
 heart.className="gameHeart";
 
 
 heart.innerHTML="❤️";
+
 
 
 heart.style.left=Math.random()*80+"%";
@@ -382,11 +389,7 @@ score++;
 document.getElementById("scoreText")
 .innerHTML=
 
-"Hearts collected: "
-
-+score+
-
-"/10";
+"Hearts collected: "+score+"/10";
 
 
 
@@ -396,9 +399,7 @@ heart.remove();
 spawnHeart();
 
 
-
 };
-
 
 
 
@@ -419,11 +420,11 @@ document.getElementById("gameArea")
 
 
 
-
-// PRIZE TICKET
+// PRIZE
 
 
 function claimPrize(){
+
 
 
 document.getElementById("gamePage")
@@ -463,13 +464,11 @@ document.getElementById("questionPage")
 
 
 
-
-
-
 // QUESTIONS
 
 
 function nextQuestion(){
+
 
 
 let answer=document.getElementById("answerBox");
@@ -489,10 +488,14 @@ return;
 
 
 
+
+
 if(questionNumber===1){
 
 
+
 questionNumber=2;
+
 
 
 document.getElementById("questionText")
@@ -507,23 +510,26 @@ answer.value="";
 
 }
 
-
 else{
+
 
 
 document.getElementById("questionPage")
 .innerHTML=
 
 
+
 `
 
 <div class="questionBox">
+
 
 <h1>
 
 I love you sooo muchhh ham ❤️😭
 
 </h1>
+
 
 
 <p>
@@ -533,11 +539,13 @@ Now go to datee pagee 💌
 </p>
 
 
+
 <button onclick="openDatePage()">
 
 Go to date page ❤️
 
 </button>
+
 
 
 </div>
@@ -562,11 +570,11 @@ Go to date page ❤️
 
 
 
-
 // DATE PAGE
 
 
 function openDatePage(){
+
 
 
 document.getElementById("questionPage")
@@ -620,16 +628,14 @@ music.play();
 
 
 
-
-
-
 // DATE TICKET
 
 
 function makeTicket(){
 
 
-let date=document.getElementById("dateInput").value;
+let date=document.getElementById("dateInput")
+.value;
 
 
 
@@ -643,6 +649,7 @@ return;
 
 
 }
+
 
 
 
@@ -675,8 +682,7 @@ document.getElementById("ticketPage")
 
 
 
-
-// VOICE PAGE
+// VOICE
 
 
 function voicePage(){
@@ -722,10 +728,11 @@ music.pause();
 
 
 
-// PASSWORD TEST
+// PASSWORD
 
 
 function testAccess(){
+
 
 
 let pass=prompt("Enter testing password ❤️");
@@ -733,6 +740,7 @@ let pass=prompt("Enter testing password ❤️");
 
 
 if(pass==="Avanthika123"){
+
 
 
 document.getElementById("countdownPage")
@@ -746,9 +754,6 @@ document.getElementById("birthdayPage")
 
 
 
-// KEEP SONG2
-
-
 let song=document.getElementById("loveSong");
 
 
@@ -760,6 +765,7 @@ song.play();
 
 
 alert("Test mode activated ❤️");
+
 
 
 }
