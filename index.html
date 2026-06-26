@@ -20,7 +20,8 @@
 
 
 
-<!-- SONG PLAYING BEFORE DATE PAGE -->
+
+<!-- SONG2 WHOLE JOURNEY -->
 
 <audio id="loveSong" loop>
 
@@ -32,22 +33,28 @@
 
 
 
-<!-- COUNTDOWN -->
+<!-- COUNTDOWN PAGE -->
 
 
 <section id="countdownPage">
 
 
+<div class="countdownBox">
+
+
 <div class="cat">
+
 🐱
+
 </div>
 
 
 
 <h1>
-Something special is coming... ❤️
-</h1>
 
+Something special is coming... ❤️
+
+</h1>
 
 
 
@@ -55,34 +62,51 @@ Something special is coming... ❤️
 
 
 <div>
+
 <span id="days">00</span>
+
 Days
+
 </div>
 
 
 
 <div>
+
 <span id="hours">00</span>
+
 Hours
+
 </div>
 
 
 
 <div>
+
 <span id="minutes">00</span>
+
 Minutes
+
 </div>
 
 
 
 <div>
+
 <span id="seconds">00</span>
+
 Seconds
+
+</div>
+
+
+
 </div>
 
 
 
 </div>
+
 
 
 </section>
@@ -101,7 +125,6 @@ Seconds
 <section id="birthdayPage" class="hidden">
 
 
-
 <h1>
 
 Happy Birthday to my beautiful wifeyyy mwahhh ❤️
@@ -114,7 +137,7 @@ Happy Birthday to my beautiful wifeyyy mwahhh ❤️
 <div class="cakeBox">
 
 
-<img class="cakeGif" src="cake.gif">
+<img src="cake.gif" class="cakeGif">
 
 
 </div>
@@ -123,11 +146,12 @@ Happy Birthday to my beautiful wifeyyy mwahhh ❤️
 
 
 
-<!-- THIS ONLY PLAYS ON DATE PAGE -->
 
 <audio id="birthdayMusic">
 
+
 <source src="music1.mp3" type="audio/mpeg">
+
 
 </audio>
 
@@ -136,13 +160,13 @@ Happy Birthday to my beautiful wifeyyy mwahhh ❤️
 
 
 
-
 <button onclick="openLetter()">
+
 
 Do you wanna hear my heart? 💌
 
-</button>
 
+</button>
 
 
 
@@ -156,11 +180,10 @@ Do you wanna hear my heart? 💌
 
 
 
-<!-- LETTER -->
+<!-- LETTER PAGE -->
 
 
 <section id="letterPage" class="hidden">
-
 
 
 <div class="paper">
@@ -174,8 +197,8 @@ For my koch ❤️
 
 
 
-
 <div class="letterText">
+
 
 
 Humm enta kochin 17 vayas akuvaahn shoo velthh ayi  
@@ -220,25 +243,25 @@ maduthuu paranj irikuva enta koch shooo
 <br><br>
 
 
-ham poteh mwahhh
+ham poteh mwah
 
 
 <br><br>
 
 
-enta koch tooo sundarii sho 😭arkum kodkulaa
+enta koch shundariiyanannee arum nokuva polum vendaa
 
 
 <br><br>
 
 
-nintee birthdayyy hehe
+nintee birthdayyy ❤️
 
 
 <br><br>
 
 
-17 Varsham of cuteness shoo🎂
+17 Varsham of cuteness 🎂
 
 
 <br><br>
@@ -258,8 +281,9 @@ SHO ham ninnee enikkk ettommmmm koodthal ishtmm ketah kunj kuripey ❤️
 
 
 
-
 </div>
+
+
 
 
 
@@ -282,11 +306,10 @@ kunjj kurip 💌
 
 
 
-<!-- BABY PHOTOS -->
+<!-- PHOTOS PAGE -->
 
 
 <section id="photosPage" class="hidden">
-
 
 
 <h1>
@@ -334,10 +357,9 @@ enta favorite phto ❤️
 
 
 
+<button onclick="openGame()">
 
-<button onclick="openDatePage()">
-
-Next ❤️
+Play a tiny game for a surprise 🎮❤️
 
 </button>
 
@@ -362,13 +384,11 @@ Next ❤️
 <div class="favoriteCard">
 
 
-
 <button onclick="closeFavorite()">
 
 ✖
 
 </button>
-
 
 
 
@@ -380,7 +400,6 @@ My favorite one ❤️
 
 
 
-
 <img src="kurip.jpg">
 
 
@@ -389,6 +408,187 @@ My favorite one ❤️
 
 
 </div>
+
+
+
+
+
+
+
+
+
+<!-- MINI GAME -->
+
+
+<section id="gamePage" class="hidden">
+
+
+<h1>
+
+Catch my love ❤️
+
+</h1>
+
+
+
+
+<p id="scoreText">
+
+Hearts collected: 0/10
+
+</p>
+
+
+
+
+<div id="gameArea">
+
+</div>
+
+
+
+
+<div id="winBox" class="hidden">
+
+
+<h2>
+
+YOU WONNN 😭❤️
+
+</h2>
+
+
+
+<p>
+
+Unlimited Mwah's 💋
+
+<br>
+
++
+
+<br>
+
+dairymilkkk 🍫
+
+</p>
+
+
+
+
+<button onclick="claimPrize()">
+
+Get prize ticket 🎟️
+
+</button>
+
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- PRIZE TICKET -->
+
+
+<section id="prizeTicketPage" class="hidden">
+
+
+<div class="cuteTicket">
+
+
+<h1>
+
+LOVE REWARD 🎁
+
+</h1>
+
+
+
+<div class="line"></div>
+
+
+
+<p>
+
+Unlimited Mwah's 💋
+
+<br>
+
++
+
+<br>
+
+Dairymilkkk 🍫
+
+</p>
+
+
+
+<span>
+
+WINNER TICKET ❤️
+
+</span>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- QUESTIONS -->
+
+
+<section id="questionPage" class="hidden">
+
+
+<div class="questionBox">
+
+
+<h1 id="questionText">
+
+Who do you love the most? ❤️
+
+</h1>
+
+
+
+<input id="answerBox" placeholder="Type your answer ❤️">
+
+
+
+<button onclick="nextQuestion()">
+
+Next 💗
+
+</button>
+
+
+
+</div>
+
+
+</section>
 
 
 
@@ -417,16 +617,11 @@ Njn Epolaa Enta Kunjine Kanan Varandee??? 😭❤️
 
 
 
-
-
 <button onclick="makeTicket()">
 
 Confirm Date 💌
 
 </button>
-
-
-
 
 
 
@@ -448,30 +643,24 @@ sho date kitilenki ith njeki saravilah 😭
 
 
 
-<!-- TICKET -->
+<!-- DATE TICKET -->
 
 
 <section id="ticketPage" class="hidden">
 
 
-<div class="ticket">
-
+<div class="cuteTicket">
 
 
 <h1>
 
-DATE TICKET 🎟️❤️
+DATE PASS 💗
 
 </h1>
 
 
 
-<p>
-
-For my pavam koch (Meh) ❤️
-
-</p>
-
+<div class="line"></div>
 
 
 
@@ -481,11 +670,17 @@ For my pavam koch (Meh) ❤️
 
 <p>
 
-Screenshot this and send it to your pavam koch 😭❤️
+A special meet-up with my pavam koch ❤️
 
 </p>
 
 
+
+<span>
+
+VALID FOREVER 🎟️
+
+</span>
 
 
 </div>
@@ -501,7 +696,7 @@ Screenshot this and send it to your pavam koch 😭❤️
 
 
 
-<!-- VOICE -->
+<!-- VOICE PAGE -->
 
 
 <section id="voicePage" class="hidden">
@@ -515,14 +710,13 @@ For my koch ❤️
 
 
 
-
 <audio controls class="voice">
 
 
 <source src="recording1.mp3">
 
-</audio>
 
+</audio>
 
 
 
@@ -535,8 +729,8 @@ For my koch ❤️
 
 
 
-
 <!-- SECRET TEST -->
+
 
 <button id="testBtn" onclick="testAccess()">
 
@@ -548,11 +742,9 @@ For my koch ❤️
 
 
 
-
 <script src="script.js"></script>
 
 
 </body>
-
 
 </html>
