@@ -7,21 +7,22 @@ let songStarted = false;
 
 
 
-// HEART ANIMATION
+// HEART BACKGROUND
 
 setInterval(()=>{
 
 
-let heart=document.createElement("span");
+let heart = document.createElement("span");
 
 
-heart.innerHTML="❤️";
+heart.innerHTML = "❤️";
 
 
-heart.style.left=Math.random()*100+"%";
+heart.style.left = Math.random()*100 + "%";
 
 
-heart.style.animationDuration=(Math.random()*5+5)+"s";
+heart.style.animationDuration =
+(Math.random()*5+5)+"s";
 
 
 
@@ -51,8 +52,7 @@ heart.remove();
 
 
 
-// START SONG2 ONLY
-
+// START SONG2
 
 window.addEventListener("load",()=>{
 
@@ -60,7 +60,7 @@ window.addEventListener("load",()=>{
 let song=document.getElementById("loveSong");
 
 
-song.volume=.4;
+song.volume=0.4;
 
 
 song.play()
@@ -76,13 +76,14 @@ songStarted=true;
 .catch(()=>{
 
 
-console.log("Waiting for user touch");
+console.log("Waiting for interaction");
 
 
 });
 
 
 });
+
 
 
 
@@ -102,13 +103,14 @@ if(!songStarted){
 let song=document.getElementById("loveSong");
 
 
-song.volume=.4;
+song.volume=0.4;
 
 
 song.play();
 
 
 songStarted=true;
+
 
 
 }
@@ -126,17 +128,16 @@ songStarted=true;
 
 
 
-
 // COUNTDOWN
 
 
 setInterval(()=>{
 
 
-let now=new Date().getTime();
+let now = new Date().getTime();
 
 
-let distance=birthday-now;
+let distance = birthday-now;
 
 
 
@@ -167,7 +168,6 @@ let seconds=Math.floor(
 
 
 
-
 document.getElementById("days").innerHTML=days;
 
 
@@ -178,6 +178,7 @@ document.getElementById("minutes").innerHTML=minutes;
 
 
 document.getElementById("seconds").innerHTML=seconds;
+
 
 
 
@@ -193,11 +194,10 @@ document.getElementById("seconds").innerHTML=seconds;
 
 
 
-// LETTER
+// OPEN LETTER
 
 
 function openLetter(){
-
 
 
 document.getElementById("birthdayPage")
@@ -221,7 +221,8 @@ document.getElementById("letterPage")
 
 
 
-// PHOTOS
+
+// OPEN PHOTOS
 
 
 function openPhotos(){
@@ -249,7 +250,8 @@ document.getElementById("photosPage")
 
 
 
-// FAVORITE PHOTO POPUP
+
+// FAVORITE PHOTO
 
 
 function showFavorite(){
@@ -263,6 +265,7 @@ document.getElementById("favoritePopup")
 
 
 
+
 function closeFavorite(){
 
 
@@ -271,6 +274,7 @@ document.getElementById("favoritePopup")
 
 
 }
+
 
 
 
@@ -300,7 +304,7 @@ document.getElementById("datePage")
 
 
 
-// STOP SONG2
+// STOP SONG2 ONLY HERE
 
 
 let song=document.getElementById("loveSong");
@@ -317,13 +321,15 @@ song.currentTime=0;
 
 
 
-// START MUSIC1 ONLY HERE
+// START MUSIC1
 
 
-let birthdaySong=document.getElementById("birthdayMusic");
+let birthdaySong=
+document.getElementById("birthdayMusic");
 
 
-birthdaySong.volume=.5;
+
+birthdaySong.volume=0.5;
 
 
 birthdaySong.play();
@@ -342,13 +348,14 @@ birthdaySong.play();
 
 
 
-// TICKET
+// MAKE TICKET
 
 
 function makeTicket(){
 
 
-let date=document.getElementById("dateInput").value;
+let date=
+document.getElementById("dateInput").value;
 
 
 
@@ -362,7 +369,6 @@ return;
 
 
 }
-
 
 
 
@@ -382,6 +388,7 @@ document.getElementById("datePage")
 
 document.getElementById("ticketPage")
 .classList.remove("hidden");
+
 
 
 }
@@ -414,6 +421,10 @@ document.getElementById("voicePage")
 
 
 
+
+// STOP ALL MUSIC
+
+
 let song=document.getElementById("loveSong");
 
 
@@ -421,8 +432,9 @@ song.pause();
 
 
 
+let birthdaySong=
+document.getElementById("birthdayMusic");
 
-let birthdaySong=document.getElementById("birthdayMusic");
 
 
 birthdaySong.pause();
@@ -441,14 +453,15 @@ birthdaySong.pause();
 
 
 
+
 // SECRET TEST BUTTON
 
 
 function testAccess(){
 
 
-
-let pass=prompt("Enter testing password ❤️");
+let pass=
+prompt("Enter testing password ❤️");
 
 
 
@@ -467,25 +480,11 @@ document.getElementById("birthdayPage")
 
 
 
-
-// STOP SONG2
-
-
-let song=document.getElementById("loveSong");
-
-
-song.pause();
-
-
-
-
-
 alert("Test mode activated ❤️");
 
 
 
 }
-
 
 else{
 
